@@ -5,17 +5,78 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>PixelCalculator</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <script src="{{URL::asset('js/jquery.min.js')}}"></script>
+        <style>
+            .r{
+                line-height: 1.54;
+                font-size: small;
+                font-weight: normal;
+                margin: 0
+            }
+            .g{
+                font-family: arial,sans-serif;
+                text-align: left;
+                margin-top: 0;
+                margin-bottom: 26px;
+                line-height: 1.2;
+                text-align: left;
+                font-size: small;
+            }
+            .rc{
+                position: relative;
+            }
+            a{
+                text-decoration: none;
+            }
+            a:link{
+                cursor: pointer;
+                color: #1a0dab;
+            }
+            h3{
+                font-size: 18px;
+    line-height: 1.33;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    margin-block-start: 1em;
+            }
+            .LC20lb{
+                display: inline-block;
+            }
+            .TbwUpd{
+                padding-bottom: 1px;
+    padding-top: 1px;
+    line-height: 1.54;
+    display: inline-block;
+            }
+            .iUh30 {
+    font-size: 14px;
+    padding-top: 1px;
+    line-height: 1.43;
+}
+cite{
+    color: #006621;
+    font-style: normal;
+}
+.s{
+    color: #545454;
+    max-width: 48em;
+    line-height: 1.54;
+}
+.st {
+    line-height: 1.54;
+    word-wrap: break-word;
+}
+        </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
             <div class="container">
                 <div class="row text-center">
-                    <h2 class="bold">PixelCalculate</h2>
+                    <h2 class="bold">PixelCalculator</h2>
                 </div>
                 <div class="row">
                     {{Form::open(['action' => 'CalcController@calculate', 'method' => 'POST', 'id' => 'calculateForm'])}}
@@ -51,7 +112,7 @@
                     <div data-hveid="CAAQAA" data-ved="2ahUKEwiL8azV1KTiAhWHuI8KHV0sCcgQFSgAMAF6BAgAEAA">
                         <div class="rc">
                             <div class="r">
-                                <a href="" id="responseUrlAnchor">
+                                <a href="#" id="responseUrlAnchor">
                                     <h3 class="LC20lb" id="responseTitle"></h3><br>
                                     <div class="TbwUpd">
                                         <cite class="iUh30 bc" id="responseUrl"></cite>
@@ -96,10 +157,8 @@
                     success: function(data){
                         if(data.title)
                             $('#responseTitle').html(data.title);
-                        if(data.url){
+                        if(data.url)
                             $('#responseUrl').html(data.url);
-                            //$('#responseUrlAnchor').replaceWith(data.url);
-                        }
                         if(data.description)
                             $('#responseDescription').html(data.description);
                     },
@@ -126,10 +185,8 @@
                     success: function(data){
                         if(data.title)
                             $('#responseTitle').html(data.title);
-                        if(data.url){
-                            $('#responseUrl').replaceWith(data.url);
-                            //$('#responseUrlAnchor').replaceWith(data.url);
-                        }
+                        if(data.url)
+                            $('#responseUrl').html(data.url);
                         if(data.description)
                             $('#responseDescription').html(data.description);
                     },
