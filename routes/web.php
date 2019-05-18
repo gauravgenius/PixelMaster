@@ -12,5 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pixelhome');
 });
+
+Route::post('calculate', 'CalcController@calculate');
