@@ -26,6 +26,7 @@ class CalcController extends Controller
         //$response['url'] = (is_null($request->keywords)) ? $request->url : $this->highlight($request->url, $request->keywords);
         $response['title'] = $request->title;
         $response['url'] = $request->url;
+        //return file_get_contents($request->url);
         $response['description'] = (is_null($request->keywords)) ? $request->description : $this->highlight($request->description, $request->keywords);
         return response()->json($response, 201);
     }
